@@ -1,33 +1,18 @@
-// require('dotenv').config()
-// const express = require('express')
-// const app = express()
+require("dotenv").config();
+const express = require("express");
+const app = express();
 
-// app.get('/', (req, res) => {
-//     res.send('Hello world!')
-// })
+app.set("view engine", "jsx");
+app.engine("jsx", require("express-react-views").createEngine());
 
-// app.get('*', (req, res) => {
-//     res.status(404).send('<h1>404 Page</h1>')
-// })
+app.use("/places", require("./controllers/places"));
 
-// app.listen(process.env.PORT)
+app.get("/", (req, res) => {
+    res.render("home");
+});
 
-require('dotenv').config()
-const express = require('express')
-const app = express()
+app.get("*", (req, res) => {
+    res.render("error404");
+});
 
-app.set('view engine', 'jsx')
-app.engine('jsx', require('express-react-views').createEngine())
-
-app.use('/places', require('./controllers/places'))
-
-app.get('/', (req, res) => {
-    res.render('home')
-})
-
-
-app.get('*', (req, res) => {
-res.send('404 page')
-})
-
-app.listen(process.env.PORT)
+app.listen(process.env.PORT);
