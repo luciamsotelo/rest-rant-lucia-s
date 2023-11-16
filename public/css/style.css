@@ -1,4 +1,11 @@
 h1 {
     text-align: center;
     color: cornflowerblue;
+  }
+  
+
+button {
+    background-color: blue;
+    text-align: center;
+    color: white;
 }
