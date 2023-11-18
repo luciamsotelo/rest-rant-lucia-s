@@ -4,7 +4,7 @@ function Def(html) {
     return (
         <html>
             <head>
-                <title>Title</title>
+                <title>REST-rant</title>
                 <link
                     rel="stylesheet"
                     href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -33,3 +33,5 @@ function Def(html) {
 }
 
 module.exports = Def;
+
+

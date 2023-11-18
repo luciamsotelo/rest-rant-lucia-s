@@ -19,6 +19,7 @@ function show(data) {
                             serving {data.place.cuisines}
                         </p>
                     </div>
+                    
                 </div>
                 <div className="row">
                     <h2>Comments</h2>
@@ -34,3 +35,5 @@ function show(data) {
 }
 
 module.exports = show;
+
+
