@@ -6,7 +6,8 @@ h1 {
   h2{
     color: lightskyblue;
   }
-  body,
+
+ /* body */
   html {
     height: 100%;
     margin: 0;
@@ -37,10 +38,11 @@ h1 {
   }
 
 button {
-    background-color: blue;
+    background-color: navy;
     text-align: center;
-    color: white;
+    color: lightblue;
 }
+
 
 img{
   width: 500px;
