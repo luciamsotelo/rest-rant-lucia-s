@@ -43,6 +43,22 @@ button {
     color: lightblue;
 }
 
+.btn-warning {
+  background-color: aqua;
+  color: blue;
+}
+
+.btn-danger {
+  background-color: blue;
+  color: aqua;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 img{
   width: 500px;

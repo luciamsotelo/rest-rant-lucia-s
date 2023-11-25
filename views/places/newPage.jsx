@@ -1,8 +1,8 @@
-const React = require("react");
-const Def = require("../default");
+// const React = require("react");
+// const Def = require("../default");
 
-function newPage() {
+// function newPage() {
 
-}
+// }
 
-module.exports = newPage;
+// module.exports = newPage;
