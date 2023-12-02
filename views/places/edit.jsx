@@ -7,7 +7,7 @@ function edit_form({ place }) {
         <Def>
             <main>
                 <h1>Edit Place</h1>
-                <form method="POST" action={`/places/${place.id}?_method=PUT`}>
+                <form method="POST" action={`/places/${data.place.id}?_method=PUT`}>
                     <div className="form-group">
                         <label htmlFor="name">Place Name</label>
                         <input
@@ -56,14 +56,12 @@ function edit_form({ place }) {
                             required
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group col-sm-4">
                         <label htmlFor="founded">Founded Year</label>
-                        <input
-                            type="number"
-                            className="form-control"
+                        <input className="form-control"
                             id="founded"
                             name="founded"
-                            value={new Date().getFullYear()}
+                            value={data.place.founded}
                         />
                     </div>
                     <input
