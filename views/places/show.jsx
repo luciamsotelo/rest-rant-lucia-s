@@ -2,13 +2,13 @@ const React = require("react");
 const Def = require("../default");
 
 function show(data) {
+    let rating;
     let comments = <h3 className="inactive">No Comment Yet!</h3>;
     if (data.place.comments.length) {
-        comments = data.place.comments.map((c) => {
+        comments = data.place.comments.map(c => {
             return (
                 <div className="border">
                     <h2 className="rant">{c.rant ? "Rant! 😠" : "Rave! 😼"}</h2>
-                    {/* if(c.rant) */}
                     <h4>{c.content}</h4>
                     <h3>
                         <strong>- {c.author}</strong>
