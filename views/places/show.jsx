@@ -2,12 +2,33 @@ const React = require("react");
 const Def = require("../default");
 
 function show(data) {
+    let comments = <h3 className="inactive">No Comment Yet!</h3>;
+    if (data.place.comments.length) {
+        comments = data.place.comments.map((c) => {
+            return (
+                <div className="border">
+                    <h2 className="rant">{c.rant ? "Rant! 😠" : "Rave! 😼"}</h2>
+                    {/* if(c.rant) */}
+                    <h4>{c.content}</h4>
+                    <h3>
+                        <strong>- {c.author}</strong>
+                    </h3>
+                    <h4>Rating: {c.stars} stars</h4>
+                </div>
+            );
+        });
+    }
+    const { name, pic, city, state, cuisines } = data.place;
     return (
         <Def>
-            <main>
-                <div className="row">
+            <main className="container">
+                <div className="row mt-5">
                     <div className="col-sm-6">
-                        <img src={data.place.pic} alt={data.place.name} />
+                        <img
+                            src={pic}
+                            alt="missing picture"
+                            className="img-fluid w-100 h-auto"
+                        />
                         <h3>
                             Located in {data.place.city}, {data.place.state}
                         </h3>
@@ -18,16 +39,8 @@ function show(data) {
                         <p>Not Rated</p>
                         <h2>Description</h2>
                         <h3>{data.place.showEstablished()}</h3>
-                        <h4>Serving {data.place.cuisines}</h4>
-                        <p>
-                            Located {data.place.city}, {data.place.state}, and
-                            serving {data.place.cuisines}
-                        </p>
+                        <h5>Serving {data.place.cuisines}</h5>
                     </div>
-                </div>
-                <div className="row">
-                    <h2>Comments</h2>
-                    <p>no comments yet!</p>
                 </div>
                 <div className="button">
                     <a
@@ -45,6 +58,57 @@ function show(data) {
                         </button>
                     </form>
                 </div>
+                <div className="mt-4row">
+                    <h2>Comments</h2>
+                    {comments}
+                </div>
+                <h3> Rant or Rave!!</h3>
+                <form action={`/places/${data.place.id}/comment`} method="POST">
+                    <div className="row">
+                        <div className="form-group col-sm-12">
+                            <label htmlFor="content">Comment</label>
+                            <textarea
+                                id="content"
+                                name="content"
+                                className="form-control"
+                            ></textarea>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="form-group col-sm-4">
+                            <label htmlFor="content">Author</label>
+                            <input
+                                id="author"
+                                name="author"
+                                className="form-control"
+                            />
+                        </div>
+                        <div className="form-group col-sm-4">
+                            <label htmlFor="stars" className="d-block">
+                                Rating
+                            </label>
+                            <input
+                                type="range"
+                                step="0.5"
+                                min="1"
+                                max="5"
+                                id="stars"
+                                name="stars"
+                            />
+                        </div>
+                        <div className="form-group col-sm-2">
+                            <label htmlFor="content" className="d-block">
+                                Rant?
+                            </label>
+                            <input type="checkbox" id="rant" name="rant" />
+                        </div>
+                    </div>
+                    <input
+                        type="submit"
+                        className="btn btn-primary"
+                        value="Add Comment"
+                    />
+                </form>
             </main>
         </Def>
     );
