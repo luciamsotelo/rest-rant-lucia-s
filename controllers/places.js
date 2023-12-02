@@ -51,7 +51,7 @@ router.get('/:id', (req, res) => {
 
 router.put("/:id", (req, res) => {
     db.Place.findByIdAndUpdate(req.params.id, req.body, { new: true})
-    .then(places => {
+    .then(place => {
         res.redirect(`/places/${req.params.id}`);
     })
     .catch((err) => {
