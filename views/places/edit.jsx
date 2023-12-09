@@ -1,13 +1,16 @@
 const React = require("react");
 const Def = require("../default");
 
-function edit_form({ place }) {
+// Example of rendering the component with the data prop
+// const data=[]
+
+function edit_form({place}) {
     // console.log(place.place)
     return (
         <Def>
             <main>
                 <h1>Edit Place</h1>
-                <form method="POST" action={`/places/${data.place.id}?_method=PUT`}>
+                <form method="POST" action={`/places/${place.id}?_method=PUT`}>
                     <div className="form-group">
                         <label htmlFor="name">Place Name</label>
                         <input
@@ -61,7 +64,7 @@ function edit_form({ place }) {
                         <input className="form-control"
                             id="founded"
                             name="founded"
-                            value={data.place.founded}
+                            value={place.founded}
                         />
                     </div>
                     <input

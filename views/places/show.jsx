@@ -40,7 +40,7 @@ function show(data) {
                 <div className="row mt-5">
                     <div className="col-sm-6">
                         <img src={pic}
-                             alt="missing picture"
+                            alt="missing picture"
                             className="img-fluid w-100 h-auto"
                         />
                         <h3>

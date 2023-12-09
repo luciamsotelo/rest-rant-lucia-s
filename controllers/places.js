@@ -1,6 +1,8 @@
 const router = require("express").Router();
+// const places = require("../models/places.js");
 const db = require("../models");
 
+// INDEX
 router.get("/", (req, res) => {
     db.Place.find()
         .then((places) => {
@@ -12,6 +14,7 @@ router.get("/", (req, res) => {
         });
 });
 
+// CREATE
 router.post("/", (req, res) => {
     db.Place.create(req.body)
         .then(() => {
@@ -33,6 +36,7 @@ router.post("/", (req, res) => {
         });
 });
 
+// NEW
 router.get("/new", (req, res) => {
     res.render("places/new");
 });
@@ -51,6 +55,7 @@ router.get("/:id", (req, res) => {
         });
 });
 
+// UPDATE
 router.put("/:id", (req, res) => {
     db.Place.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then((place) => {
@@ -62,6 +67,7 @@ router.put("/:id", (req, res) => {
         });
 });
 
+// DELETE
 router.delete("/:id", (req, res) => {
     db.Place.findByIdAndDelete(req.params.id)
         .then(() => {
@@ -73,6 +79,7 @@ router.delete("/:id", (req, res) => {
         });
 });
 
+// EDIT
 router.get("/:id/edit", (req, res) => {
     db.Place.findById(req.params.id)
         .then((place) => {
@@ -84,6 +91,8 @@ router.get("/:id/edit", (req, res) => {
         });
 });
 
+
+// CREATE COMMENT
 router.post("/:id/comment", (req, res) => {
     console.log(req.body);
     if (req.body.author === '') {
